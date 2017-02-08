@@ -1,32 +1,27 @@
-<%= form_for(post) do |f| %>
-  <% if post.errors.any? %>
+<!-- https://scotch.io/tutorials/build-a-blog-with-ruby-on-rails-part-1 -->
+<%= simple_form_for @post do |f| %>
+  <% if @post.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
+      <h2>
+        <%= "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:" %>
+      </h2>
       <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="form-group">
+    <%= f.input :title, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :body %>
-    <%= f.text_field :body %>
+  <div class="form-group">
+    <%= f.input :body, :as => :ckeditor, input_html: {:ckeditor => {:toolbar => 'FULL'}}, class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :upvotes %>
-    <%= f.number_field :upvotes %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.button :submit %>
   </div>
 <% end %>
