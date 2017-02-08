@@ -5,8 +5,10 @@
   <h2 class="text-center"><%= @post.title %></h2>
   <h5 class="text-center"><%= @post.created_at.strftime('%b %d, %Y') %></h5>
   <div><%= raw @post.body %></div>
-</div>
-<div>
-  <%= render @post.comments %>
-
+  <div>
+    <h2 class="text-center">Comments</h2>
+    <%= render @post.comments %>
+    <h3>Add Comment:</h3>
+    <%= render 'comments/form' %>
+  </div>
 </div>
