@@ -27,6 +27,8 @@ gem 'ckeditor', '~> 4.1'
 gem 'simple_form', '~> 3.2'
 # https://github.com/twbs/bootstrap-sass#a-ruby-on-rails
 gem 'bootstrap-sass', '~> 3.3.6'
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
