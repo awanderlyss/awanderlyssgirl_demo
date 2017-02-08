@@ -31,6 +31,8 @@ gem 'bootstrap-sass', '~> 3.3.6'
 gem 'devise'
 # https://github.com/sferik/rails_admin
 gem 'rails_admin'
+# Use CanCanCan to restrict what resources a given user is allowed to access.
+gem 'cancancan'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
