@@ -27,6 +27,12 @@ gem 'ckeditor', '~> 4.1'
 gem 'simple_form', '~> 3.2'
 # https://github.com/twbs/bootstrap-sass#a-ruby-on-rails
 gem 'bootstrap-sass', '~> 3.3.6'
+# Devise is a flexible authentication solution for Rails based on Warden
+gem 'devise'
+# https://github.com/sferik/rails_admin
+gem 'rails_admin'
+# Use CanCanCan to restrict what resources a given user is allowed to access.
+gem 'cancancan'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
