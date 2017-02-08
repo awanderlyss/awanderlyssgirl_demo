@@ -1,6 +1,6 @@
 <!-- https://scotch.io/tutorials/build-a-blog-with-ruby-on-rails-part-1 -->
 <!-- http://guides.rubyonrails.org/v3.2/getting_started.html -->
-<%= simple_form_for [@post, @post.comments.build] do |f| %>
+<%= simple_form_for [@post, @comment] do |f| %>
   <div class="form-group">
     <%= f.input :body, class: "form-control" %>
   </div>

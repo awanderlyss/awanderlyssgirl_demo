@@ -9,10 +9,10 @@ class Ability
          can :manage, :all
        else
          can :update, Comment do |comment|
-           comment.user === user
+           comment.user_id === user
          end
          can :destroy, Comment do |comment|
-           comment.user === user
+           comment.user_id === user
          end
          can :create, Comment
          can :read, :all
