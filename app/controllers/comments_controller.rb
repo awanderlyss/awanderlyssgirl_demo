@@ -21,7 +21,8 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @post, notice: 'Comment was successfully created.' }
+        flash[:success] = 'Comment was successfully created.'
+        format.html { redirect_to @post }
         format.json { render json: @comment, status: :created, location: @comment }
       else
         format.html { render :new }
@@ -36,10 +37,11 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comment.update(comment_params.merge(user:current_user))
-    
+
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to @post, notice: 'Comment was successfully updated.' }
+        flash[:success] = 'Comment was successfully updated.'
+        format.html { redirect_to @post }
         format.json { render :show, status: :ok, location: @comment }
       else
         format.html { render :edit }
@@ -55,7 +57,8 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
     respond_to do |format|
-      format.html { redirect_to post_path(@post), notice: 'Comment was successfully destroyed.' }
+      flash[:success] = 'Comment was successfully destroyed.'
+      format.html { redirect_to post_path(@post) }
       format.json { head :no_content }
     end
   end

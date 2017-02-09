@@ -1,18 +1,3 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-@mixin v-col($prefix, $min-width) {
-    @media (min-width: $min-width) {
-        .col-#{$prefix}-v {
-            display: inline-block;
-            vertical-align: middle;
-            float: none;
-        }
-    }
-}
-
-@include v-col(lg, $screen-lg);
-@include v-col(md, $screen-md);
-@include v-col(sm, $screen-sm);
-@include v-col(xs, $screen-xs);
