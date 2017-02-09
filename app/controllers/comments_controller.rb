@@ -10,14 +10,14 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.find(params[:id])
+    @comment = Comment.find(params[:id])
   end
 
   # POST /comments
   # POST /comments.json
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.new(comment_params.merge(user: current_user))
+    @comment = @post.comments.create(comment_params.merge(user: current_user))
 
     respond_to do |format|
       if @comment.save
@@ -36,7 +36,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comment.update(comment_params.merge(user:current_user))
-
+    
     respond_to do |format|
       if @comment.update(comment_params)
         format.html { redirect_to @post, notice: 'Comment was successfully updated.' }
