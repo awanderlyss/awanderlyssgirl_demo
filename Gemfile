@@ -26,6 +26,7 @@ gem 'simple_form', '~> 3.2'
 # https://github.com/twbs/bootstrap-sass#a-ruby-on-rails
 gem 'bootstrap-sass', '~> 3.3.6'
 # Use bootswatch to give complete scss versions of bootswatch themes
+# https://github.com/maxim/bootswatch-rails
 gem 'bootswatch-rails'
 # Devise is a flexible authentication solution for Rails based on Warden
 gem 'devise'
