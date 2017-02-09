@@ -14,21 +14,7 @@
       <div class="site-wrapper-inner">
         <div class="cover-container">
           <div class="masthead clearfix">
-            <div class="inner">
-              <h3 class="masthead-brand">AwanderlyssGirl</h3>
-              <nav>
-                <ul class="nav masthead-nav">
-                  <li>
-                    <% if current_user %>
-                      Welcome, <%= current_user.name %>! |
-                      <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
-                    <% else %>
-                      <%= link_to 'Login', new_user_session_path %>
-                    <% end %>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+            <%= render 'shared/navigation' %>
           </div>
 
           <div class="inner cover">
@@ -37,7 +23,9 @@
 
           <div class="mastfoot">
             <div class="inner">
-              <p>Cover template for <a href="http://getbootstrap.com">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+              <p>
+                Create by <a href="http://alyssafelix.com">Alyssa Felix</a>. Powered by <a href="http://getbootstrap.com">Bootstrap</a>
+              </p>
             </div>
           </div>
         </div>
