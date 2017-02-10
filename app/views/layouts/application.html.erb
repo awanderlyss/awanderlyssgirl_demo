@@ -11,6 +11,11 @@
   <body>
     <%= render 'shared/navigation' %>
     <div id="main-container" class="container-fluid">
+      <div id="message" class="alert alert-dismissible alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4>Welcome, <%= current_user.name %>!</h4>
+        <p><%= current_user.message %></p>
+      </div>
       <div class="row">
         <%= yield %>
       </div>

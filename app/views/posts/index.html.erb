@@ -1,16 +1,19 @@
 <div class="col-sm-6">
-  <% @posts.each do |post| %>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h5><%= post.title %></h5>
+  <h1>Posts</h1>
+  <div class="container-fluid" id="posts">
+    <% @posts.each do |post| %>
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h5><%= post.title %></h5>
+        </div>
+        <div class="panel-body">
+          <time><%= post.created_at.strftime('%b %d, %Y') %></time>
+          <p><%= post.body.truncate(50) %></p>
+          <p class="text-right"><%= link_to "READ MORE", post_path(post) %></p>
+        </div>
       </div>
-      <div class="panel-body">
-        <time><%= post.created_at.strftime('%b %d, %Y') %></time>
-        <p><%= post.body.truncate(50) %></p>
-        <p class="text-right"><%= link_to "READ MORE", post_path(post) %></p>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
 <div class="col-sm-6">
   <h1>Instagram API</h1>
