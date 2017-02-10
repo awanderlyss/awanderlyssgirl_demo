@@ -6,7 +6,17 @@
   <div><%= raw @post.body %></div>
   <div>
     <h2 class="text-center">Comments</h2>
-    <%= render @post.comments %>
+      <% @post.comments.each do |comment| %>
+        <p>
+          <b><%= comment.user.email %></b> says:
+          <%= comment.body %>
+
+          <% if current_user == comment.user %>
+            <%= link_to "Edit", edit_post_comment_path(@post, comment) %> |
+            <%= link_to "Delete", post_comment_path(@post, comment), method: :delete, data: {confirm: 'Are you sure?'} %>
+          <% end %>
+        </p>
+      <% end %>
     <h3>Add Comment:</h3>
     <%= render 'comments/form' %>
   </div>

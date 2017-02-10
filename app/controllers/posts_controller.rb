@@ -8,10 +8,11 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
+  # GET /post
+  # GET /post.json
   def show
-    @post = Post.find(params[:id])
+    # build comment for post, so the form will be built in the show view
+    @comment = @post.comments.build
   end
 
   # GET /posts/new
@@ -19,15 +20,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  # GET /posts/1/edit
-  def edit
-    @post = Post.find(params[:id])
-  end
-
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.create!(post_params.merge(user: current_user))
+    @post = Post.new(post_params)
 
     respond_to do |format|
       if @post.save
@@ -43,9 +39,6 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
-    @post = Post.find(params[:id])
-    @post.update(post_params.merge(user:current_user))
-
     respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, success: 'Post was successfully updated.' }
@@ -76,6 +69,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :upvotes)
+      perrmitted = params.require(:post).permit(:title, :body, :upvotes)
+      perrmitted.merge(user: current_user)
     end
 end
