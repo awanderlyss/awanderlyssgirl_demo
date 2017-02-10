@@ -1,0 +1,24 @@
+
+ // Example using 'Paper' bootswatch
+ // https://github.com/maxim/bootswatch-rails
+
+ //Import bootstrap-sprockets
+ @import "bootstrap-sprockets";
+
+ // Import paper variables
+ @import "bootswatch/paper/variables";
+
+ // Then bootstrap itself
+ @import "bootstrap";
+
+ // Bootstrap body padding for fixed navbar
+ html,
+ body {
+   width: 100%;
+   height: 100%;
+ }
+
+ // And finally bootswatch style itself
+ @import "bootswatch/paper/bootswatch";
+
+ // Whatever application styles you have go last
