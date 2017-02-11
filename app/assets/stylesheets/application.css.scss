@@ -1,24 +1,53 @@
 
- // Example using 'Paper' bootswatch
- // https://github.com/maxim/bootswatch-rails
+// Example using 'Paper' bootswatch
+// https://github.com/maxim/bootswatch-rails
 
- //Import bootstrap-sprockets
- @import "bootstrap-sprockets";
+//Import bootstrap-sprockets
+@import 'bootstrap-sprockets';
 
- // Import paper variables
- @import "bootswatch/paper/variables";
+// Import paper variables
+@import 'bootswatch/paper/variables';
 
- // Then bootstrap itself
- @import "bootstrap";
+// Then bootstrap itself
+@import 'bootstrap';
 
- // Bootstrap body padding for fixed navbar
- html,
- body {
-   width: 100%;
-   height: 100%;
- }
+// And finally bootswatch style itself
+@import 'bootswatch/paper/bootswatch';
 
- // And finally bootswatch style itself
- @import "bootswatch/paper/bootswatch";
+// Import home styles
+@import 'home';
 
- // Whatever application styles you have go last
+// Import home styles
+@import 'posts';
+
+// Bootstrap body padding for fixed navbar
+body {
+  background: image-url('bg-img.jpg') no-repeat center fixed;
+  background-size: cover;
+  padding-top: $navbar-height;
+  overflow: hidden;
+}
+
+html,
+body { height: 100vh; width: 100vw; }
+
+.navbar-default {
+  background-color: rgba(255, 255, 255, .7);
+}
+
+form {
+  padding: 10px 0;
+}
+
+p { margin: 0; }
+
+#form {
+  background: white;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  opacity: .8;
+}
+
+#message { margin: 23px 0 0 0; }

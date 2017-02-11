@@ -1,23 +1,40 @@
 
-<%= link_to 'Back', posts_path %>
-<div class="col-sm-11 col-xs-12 blog-content">
-  <h2 class="text-center"><%= @post.title %></h2>
-  <h5 class="text-center"><%= @post.created_at.strftime('%b %d, %Y') %></h5>
-  <div><%= @post.body %></div>
-  <div>
-    <h3>Comments</h3>
-    <% if current_user %>
-      <%= link_to "Add new comment", new_post_comment_path(@post) %>
-    <% end %>
-    <% @post.comments.each do |comment| %>
-      <div>
-        <time>Updated by <%= comment.user.email %> at <%= comment.updated_at %></time>
-        <p><%= comment.body %></p>
-        <% if current_user && current_user == comment.user %>
-        	<%= link_to "Edit", edit_post_comment_path(@post, comment) %> |
-        	<%= link_to "Delete", post_comment_path(@post, comment), method: :delete %>
-        <% end %>
+<div class="col-sm-6" id="post">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h5><%= @post.title %></h5>
+        <p><em><%= @post.created_at.strftime('%b %d, %Y') %></em></p>
       </div>
-    <% end %>
-  </div>
+      <div class="panel-body">
+        <ul class="nav nav-tabs">
+          <li class=""><%= link_to 'Back', posts_path %></li>
+          <li class="active"><%= link_to 'Post', post_path(@post) %></li>
+          <li class=""><a href="#comments" data-toggle="tab" aria-expanded="false">Comments</a></li>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <!-- post -->
+          <div class="tab-pane fade active in" id="post">
+            <p><%= @post.body %></p>
+          </div>
+          <!-- comments -->
+          <div class="tab-pane fade" id="comments">
+            <% if current_user %>
+              <p class="text-right"><%= link_to "NEW COMMENT", new_post_comment_path(@post), class: "btn btn-xs btn-default" %></p>
+            <% end %>
+            <% @post.comments.each do |comment| %>
+              <div id="comment" class="well well-sm">
+                <p>
+                  <%= comment.user.name %> on <em><%= comment.created_at.strftime('%b %d, %Y') %></em> said: <br>
+                  <%= comment.body %> <br>
+                  <% if current_user == comment.user %>
+                    <%= link_to "Edit", edit_post_comment_path(@post, comment) %> |
+                    <%= link_to "Delete", post_comment_path(@post, comment), method: :delete %>
+                  <% end %>
+                </p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
