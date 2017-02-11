@@ -2,7 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#posts {
+#posts,
+#post {
   height: inherit;
   overflow: scroll;
+  padding-top: 20px;
+}
+
+// show post =================================================
+.panel-body p {
+  //http://stackoverflow.com/questions/23763482/text-not-wrapping-inside-a-div-element
+  word-break: break-all;
+  padding-bottom: 10px;
+}
+
+// comments ==================================================
+#comment {
+  p {
+    padding: 0;
+  }
 }

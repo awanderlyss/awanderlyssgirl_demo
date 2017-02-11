@@ -17,11 +17,15 @@
 // Import home styles
 @import 'home';
 
+// Import home styles
+@import 'posts';
+
 // Bootstrap body padding for fixed navbar
 body {
   background: image-url('bg-img.jpg') no-repeat center fixed;
   background-size: cover;
   padding-top: $navbar-height;
+  overflow: hidden;
 }
 
 html,
@@ -37,4 +41,4 @@ form {
 
 p { margin: 0; }
 
-#message { margin-top: 23px; }
+#message { margin: 23px 0 0 0; }
