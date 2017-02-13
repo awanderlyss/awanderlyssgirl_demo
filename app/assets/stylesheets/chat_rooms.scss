@@ -3,23 +3,24 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+#chat_rooms,
 #chat_room {
   height: inherit;
-  padding-top: 20px;
+  padding: 20px 0 0 0;
 
+  .panel {
+    height: 95%;
+  }
   p {
     padding: 10px 0 0 0;
   }
 }
 
-.panel {
-  height: 95%;
-}
 #messages {
-  max-height: 450px;
+  max-height: 400px;
   overflow-y: auto;
-  .avatar {
-    margin: 0.5rem;
-    width: 100%
-  }
+}
+
+#new_message {
+  padding: 0;
 }

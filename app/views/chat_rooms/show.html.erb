@@ -1,15 +1,21 @@
-<h1><%= @chat_room.title %></h1>
 
-<div id="messages" data-chat-room-id="<%= @chat_room.id %>">
-  <%= render @chat_room.messages %>
-</div>
 
-<%= form_for @message, url: '#' do |f| %>
-  <div class="form-group">
-    <%= f.label :body %>
-    <%= f.text_area :body, class: 'form-control' %>
-    <small class="text-muted">From 2 to 1000 characters</small>
+<div class="col-sm-12" id="chat_room">
+  <div  class="panel panel-default">
+    <div class="panel-heading"><h4><%= @chat_room.title %></h4></div>
+    <div id="messages" class="panel-body" data-chat-room-id="<%= @chat_room.id %>">
+      <%= render @chat_room.messages %>
+    </div>
+    <div class="panel-footer">
+      <%= simple_form_for @message, url: '#' do |f| %>
+        <div class="form-group">
+          <%= f.input :body, class: 'form-control', label: false %>
+          <small class="text-muted">From 2 to 1000 characters</small>
+          <div class="text-right">
+            <%= f.submit "POST", class: 'btn btn-default btn-md' %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <%= f.submit "Post", class: 'btn btn-primary btn-lg' %>
-<% end %>
+</div>
