@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
           <li><%= link_to 'Blog', posts_path %></li>
-          <li><%= link_to 'ChatRoom', chat_rooms_path %></li>
+          <li><%= link_to ' ChatRoom', chat_rooms_path, id: "online-status" %></li>
           <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
         <% else %>
           <li><%= link_to 'Login', new_user_session_path %></li>
