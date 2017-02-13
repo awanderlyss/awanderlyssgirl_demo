@@ -1,6 +1,11 @@
 class ChatRoomsController < ApplicationController
   def index
-    @chat_rooms = ChatRoom.all
+    if current_user.admin
+      @chat_rooms = ChatRoom.all
+    else
+      @chat_room = ChatRoom.find_by(user: current_user.id)
+      redirect_to chat_room_path(@chat_room)
+    end
   end
 
   def show
