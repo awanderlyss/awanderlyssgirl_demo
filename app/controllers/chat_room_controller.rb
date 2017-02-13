@@ -3,6 +3,11 @@ class ChatRoomController < ApplicationController
     @chat_rooms = ChatRoom.all
   end
 
+  def show
+    #  Messages should be displayed when a user enters a chat room,
+    @chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+  end
+
   def new
     @chat_room = ChatRoom.new
   end
