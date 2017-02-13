@@ -4,6 +4,7 @@ module ApplicationCable
 
     def connect
       self.current_user = find_verified_user
+      # used to display debugging information in the console
       logger.add_tags 'ActionCable', current_user.email
     end
 
