@@ -1,4 +1,4 @@
-class ChatRoomController < ApplicationController
+class ChatRoomsController < ApplicationController
   def index
     @chat_rooms = ChatRoom.all
   end
