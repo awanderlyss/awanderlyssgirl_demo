@@ -17,8 +17,11 @@
 // Import home styles
 @import 'home';
 
-// Import home styles
+// Import posts styles
 @import 'posts';
+
+// Import chat_rooms styles
+@import 'chat_rooms';
 
 // Bootstrap body padding for fixed navbar
 body {
@@ -49,5 +52,3 @@ p { margin: 0; }
   transform: translate(-50%,-50%);
   opacity: .8;
 }
-
-#message { margin: 23px 0 0 0; }

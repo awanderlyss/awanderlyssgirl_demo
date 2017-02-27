@@ -1,0 +1,40 @@
+// Place all the styles related to the ChatRoom controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#chat_rooms,
+#chat_room {
+  height: inherit;
+  padding: 20px 0 0 0;
+
+  .panel {
+    height: 95%;
+  }
+  p {
+    padding: 10px 0 0 0;
+  }
+}
+
+
+#messages {
+  height: 440px;
+  overflow-y: auto;
+}
+
+#chat_message {
+  border-radius: 10px;
+  position: relative;
+
+  p {
+    padding: 0;
+  }
+}
+
+#new_message {
+  padding: 0;
+}
+
+#message_body {
+  height: 35px;
+}

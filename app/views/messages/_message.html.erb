@@ -1,0 +1,17 @@
+<% if message.user.admin %>
+  <div id="chat_message" class="text-right">
+    <span class="label label-primary"> <%= message.user.name %></span>
+    <div class="well well-sm">
+      <span class="text-muted"> at <%= message.timestamp %> says</span><br>
+      <%= message.body %>
+    </div>
+  </div>
+<% else %>
+  <div id="chat_message">
+    <span class="label label-warning"><%= message.user.name %></span>
+    <div class="well well-sm">
+      <span class="text-muted"> at <%= message.timestamp %> says</span><br>
+      <%= message.body %>
+    </div>
+  </div>
+<% end %>

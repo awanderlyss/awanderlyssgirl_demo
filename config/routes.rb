@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  mount ActionCable.server => '/cable'
+
+  resources :chat_rooms, only: [:new, :create, :show, :index]
 
   devise_for :users
 
@@ -9,6 +12,6 @@ Rails.application.routes.draw do
   end
 
   root 'home#index'
-  # * - pass the page parameter in as an array. 
+  # * - pass the page parameter in as an array.
   get "/pages/*page" => "pages#show"
 end

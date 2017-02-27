@@ -32,6 +32,8 @@ gem 'bootswatch-rails'
 gem 'devise'
 # https://github.com/sferik/rails_admin
 gem 'rails_admin'
+# Use Redis for in-memory data structure store, used as a database, cache and message broker
+gem 'redis', '~> 3.2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

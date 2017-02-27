@@ -1,0 +1,30 @@
+
+<div class="col-sm-12" id="chat_rooms">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3>Chat Rooms</h3>
+      </div>
+      <div class="panel-body">
+        <div class="text-right">
+          <%= link_to 'NEW CHAT ROOM', new_chat_room_path, class: 'btn btn-sm btn-default' %>
+        </div>
+        <!-- render tab for each chat room -->
+        <ul class="nav nav-tabs">
+          <%= render @chat_rooms %>
+        </ul>
+        <div id="myTabContent" class="tab-content">
+          <!-- display each chat_room in tab -->
+          <% @chat_rooms.each do |chat_room| %>
+            <div class="tab-pane fade" id="<%= chat_room.id %>">
+            <p>Title: <%= chat_room.title %></p>
+            <p>User: <%= chat_room.user.name %></p>
+            <p>Messages: <%= chat_room.messages.length %></p>
+            <div class="text-right">
+              <%= link_to 'ENTER CHAT ROOM', chat_room_path(chat_room), class: 'btn btn-sm btn-default' %>
+            </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+</div>

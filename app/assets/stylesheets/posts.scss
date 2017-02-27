@@ -6,7 +6,7 @@
 #post {
   height: inherit;
   overflow: scroll;
-  padding-top: 20px;
+  padding: 20px 0 0 0;
 }
 
 // show post =================================================
@@ -21,4 +21,8 @@
   p {
     padding: 0;
   }
+}
+
+#form p{
+  padding-top: 10px;
 }
