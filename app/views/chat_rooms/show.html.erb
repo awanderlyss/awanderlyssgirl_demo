@@ -8,13 +8,10 @@
     </div>
     <div class="panel-footer">
       <%= simple_form_for @message, url: '#' do |f| %>
-        <div class="form-group">
           <%= f.input :body, class: 'form-control', label: false %>
-          <small class="text-muted">From 2 to 1000 characters</small>
           <div class="text-right">
             <%= f.submit "POST", class: 'btn btn-default btn-md' %>
           </div>
-        </div>
       <% end %>
     </div>
   </div>

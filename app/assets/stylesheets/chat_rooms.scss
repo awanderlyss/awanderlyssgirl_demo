@@ -16,11 +16,25 @@
   }
 }
 
+
 #messages {
-  max-height: 400px;
+  height: 440px;
   overflow-y: auto;
+}
+
+#chat_message {
+  border-radius: 10px;
+  position: relative;
+
+  p {
+    padding: 0;
+  }
 }
 
 #new_message {
   padding: 0;
+}
+
+#message_body {
+  height: 35px;
 }
